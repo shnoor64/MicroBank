@@ -1,0 +1,68 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-table-personal_account
+      author: Oleg Belousov
+      changes:
+        - createTable:
+            tableName: personal_account
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  autoIncrement: true
+                  constraints:
+                     - primaryKey: true
+                     - nullable: false
+              - column:
+                  name: full_name
+                  type: VARCHAR(32)
+                  constraints:
+                    - nullable: false
+              - column:
+                  name: balance
+                  type: real
+              - column:
+                  name: login
+                  type: VARCHAR(32)
+                  constraints:
+                    - nullable: false
+              - column:
+                  name: password
+                  type: VARCHAR(32)
+                  constraints:
+                    - nullable: false
+
+
+  - changeSet:
+      id: create-table-account_history
+      author: Oleg Belousov
+      changes:
+        - createTable:
+            tableName: account_history
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  autoIncrement: true
+                  constraints:
+                     - primaryKey: true
+                     - nullable: false
+              - column:
+                  name: account
+                  type: bigint
+                  constraints:
+                    - foreignKeyName: fk_personal_account
+                    - references: personal_account(id)
+                    - nullable: false
+              - column:
+                  name: type_operation
+                  type: VARCHAR(32)
+              - column:
+                  name: amount_money
+                  type: real
+              - column:
+                  name: time_operation
+                  type: timestamp
+              - column:
+                  name: description
+                  type: VARCHAR(255)

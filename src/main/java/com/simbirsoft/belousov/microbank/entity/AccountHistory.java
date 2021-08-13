@@ -23,7 +23,7 @@ public class AccountHistory {
     private TypeOperation typeOperation;
 
     @Column(name = "amount_money")
-    private String amountMoney;
+    private float amountMoney;
 
     @Column(name = "time_operation")
     private LocalDateTime timeOperation;
@@ -34,7 +34,7 @@ public class AccountHistory {
     public AccountHistory() {
     }
 
-    public AccountHistory(long id, PersonalAccount account, TypeOperation typeOperation, String amountMoney, LocalDateTime timeOperation, String description) {
+    public AccountHistory(long id, PersonalAccount account, TypeOperation typeOperation, float amountMoney, LocalDateTime timeOperation, String description) {
         this.id = id;
         this.account = account;
         this.typeOperation = typeOperation;
@@ -67,11 +67,11 @@ public class AccountHistory {
         this.typeOperation = typeOperation;
     }
 
-    public String getAmountMoney() {
+    public float getAmountMoney() {
         return amountMoney;
     }
 
-    public void setAmountMoney(String amountMoney) {
+    public void setAmountMoney(float amountMoney) {
         this.amountMoney = amountMoney;
     }
 
