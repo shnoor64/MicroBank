@@ -8,7 +8,7 @@ import java.time.LocalDateTime;
 @Entity
 
 @Table(name = "account_history")
-public class AccountHistory {
+public class AccountHistoryEntity {
     @Id
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -16,7 +16,7 @@ public class AccountHistory {
 
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "account")
-    private PersonalAccount account;
+    private PersonalAccountEntity account;
 
     @Enumerated(EnumType.STRING)
     @Column(name = "type_operation")
@@ -31,10 +31,10 @@ public class AccountHistory {
     @Column(name = "description ")
     private String description;
 
-    public AccountHistory() {
+    public AccountHistoryEntity() {
     }
 
-    public AccountHistory(long id, PersonalAccount account, TypeOperation typeOperation, float amountMoney, LocalDateTime timeOperation, String description) {
+    public AccountHistoryEntity(long id, PersonalAccountEntity account, TypeOperation typeOperation, float amountMoney, LocalDateTime timeOperation, String description) {
         this.id = id;
         this.account = account;
         this.typeOperation = typeOperation;
@@ -51,11 +51,11 @@ public class AccountHistory {
         this.id = id;
     }
 
-    public PersonalAccount getAccount() {
+    public PersonalAccountEntity getAccount() {
         return account;
     }
 
-    public void setAccount(PersonalAccount account) {
+    public void setAccount(PersonalAccountEntity account) {
         this.account = account;
     }
 

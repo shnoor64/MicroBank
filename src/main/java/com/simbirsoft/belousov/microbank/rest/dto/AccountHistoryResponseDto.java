@@ -1,6 +1,5 @@
 package com.simbirsoft.belousov.microbank.rest.dto;
 
-import com.simbirsoft.belousov.microbank.entity.PersonalAccount;
 import com.simbirsoft.belousov.microbank.enums.TypeOperation;
 
 import java.time.LocalDateTime;

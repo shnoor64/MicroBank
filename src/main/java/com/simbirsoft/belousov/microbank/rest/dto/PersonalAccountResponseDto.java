@@ -3,17 +3,17 @@ package com.simbirsoft.belousov.microbank.rest.dto;
 public class PersonalAccountResponseDto {
     private long id;
 
-    private String fullName;
+    private String login;
 
-    private float balance;
+    private String password;
 
     public PersonalAccountResponseDto() {
     }
 
-    public PersonalAccountResponseDto(long id, String fullName, float balance) {
+    public PersonalAccountResponseDto(long id, String login, String password) {
         this.id = id;
-        this.fullName = fullName;
-        this.balance = balance;
+        this.login = login;
+        this.password = password;
     }
 
     public long getId() {
@@ -24,19 +24,19 @@ public class PersonalAccountResponseDto {
         this.id = id;
     }
 
-    public String getFullName() {
-        return fullName;
+    public String getLogin() {
+        return login;
     }
 
-    public void setFullName(String fullName) {
-        this.fullName = fullName;
+    public void setLogin(String login) {
+        this.login = login;
     }
 
-    public float getBalance() {
-        return balance;
+    public String getPassword() {
+        return password;
     }
 
-    public void setBalance(float balance) {
-        this.balance = balance;
+    public void setPassword(String password) {
+        this.password = password;
     }
 }
