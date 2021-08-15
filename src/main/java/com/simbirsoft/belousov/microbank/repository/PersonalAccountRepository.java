@@ -4,4 +4,5 @@ import com.simbirsoft.belousov.microbank.entity.PersonalAccountEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface PersonalAccountRepository extends JpaRepository<PersonalAccountEntity, Integer> {
+PersonalAccountEntity findByLogin (String login);
 }

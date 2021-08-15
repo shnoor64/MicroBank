@@ -2,8 +2,6 @@ package com.simbirsoft.belousov.microbank.mappers;
 
 import com.simbirsoft.belousov.microbank.entity.AccountHistoryEntity;
 import com.simbirsoft.belousov.microbank.repository.PersonalAccountRepository;
-import com.simbirsoft.belousov.microbank.rest.dto.AccountDetailsRequestDto;
-import com.simbirsoft.belousov.microbank.rest.dto.AccountDetailsResponseDto;
 import com.simbirsoft.belousov.microbank.rest.dto.AccountHistoryRequestDto;
 import com.simbirsoft.belousov.microbank.rest.dto.AccountHistoryResponseDto;
 import org.mapstruct.Mapper;
