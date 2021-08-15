@@ -7,12 +7,12 @@ public class PaymentDetailsRequestDto {
 
     private String projectName;
 
-    private TypeOperation typeOperation;
+    private String typeOperation;
 
     public PaymentDetailsRequestDto() {
     }
 
-    public PaymentDetailsRequestDto(float money, String projectName, TypeOperation typeOperation) {
+    public PaymentDetailsRequestDto(float money, String projectName, String typeOperation) {
         this.money = money;
         this.projectName = projectName;
         this.typeOperation = typeOperation;
@@ -34,11 +34,11 @@ public class PaymentDetailsRequestDto {
         this.projectName = projectName;
     }
 
-    public TypeOperation getTypeOperation() {
+    public String getTypeOperation() {
         return typeOperation;
     }
 
-    public void setTypeOperation(TypeOperation typeOperation) {
+    public void setTypeOperation(String typeOperation) {
         this.typeOperation = typeOperation;
     }
 }

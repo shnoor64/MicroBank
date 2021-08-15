@@ -4,6 +4,7 @@ import com.simbirsoft.belousov.microbank.entity.AccountHistoryEntity;
 import com.simbirsoft.belousov.microbank.repository.PersonalAccountRepository;
 import com.simbirsoft.belousov.microbank.rest.dto.AccountHistoryRequestDto;
 import com.simbirsoft.belousov.microbank.rest.dto.AccountHistoryResponseDto;
+import com.simbirsoft.belousov.microbank.rest.exeption_handing.NoSuchException;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.Mappings;
@@ -18,12 +19,12 @@ public abstract class AccountHistoryMapper {
     protected PersonalAccountRepository personalAccountRepository;
 
     @Mappings({
-            @Mapping(target = "account", expression = "java(personalAccountRepository.findById(accountDetailsRequestDto.getAccount()).orElseThrow(() -> new NoSuchException(\"Аккаунт не найден\")))")
+            @Mapping(target = "account", expression = "java(personalAccountRepository.findById((int)accountHistoryRequestDto.getAccount()).orElseThrow(() -> new NoSuchException(\"Аккаунт не найден\")))")
     })
-    public abstract AccountHistoryEntity accountHistoryRequestDtoToEntity(AccountHistoryRequestDto accountHistoryRequestDto);
+    public abstract AccountHistoryEntity accountHistoryRequestDtoToEntity(AccountHistoryRequestDto accountHistoryRequestDto) throws NoSuchException;
 
     @Mappings({
             @Mapping(target = "account", expression = "java(accountHistoryEntity.getAccount().getId())")
     })
-    public abstract AccountHistoryResponseDto accountHistoryEntityToResponseDto(AccountHistoryEntity accountHistoryEntity);
+    public abstract AccountHistoryResponseDto accountHistoryEntityToResponseDto(AccountHistoryEntity accountHistoryEntity) throws NoSuchException;
 }

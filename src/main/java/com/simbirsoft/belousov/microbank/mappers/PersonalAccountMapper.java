@@ -9,6 +9,7 @@ import org.springframework.stereotype.Component;
 @Mapper(componentModel = "spring")
 @Component
 public interface PersonalAccountMapper {
+
     PersonalAccountEntity personalAccountRequestDtoToEntity(PersonalAccountRequestDto personalAccountRequestDto);
 
     PersonalAccountResponseDto PersonalAccountEntityToResponseDto(PersonalAccountEntity personalAccountEntity);
