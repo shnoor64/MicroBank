@@ -34,7 +34,7 @@ public class PersonalAccountController {
         if (!(auth instanceof AnonymousAuthenticationToken)) {
             userDetails = (UserDetails) auth.getPrincipal();
         }
-        LOG.log(Level.INFO, "Запрос: \"Оплатить старт проекта пользователем "+userDetails.getUsername());
+        LOG.log(Level.INFO, "Запрос: \"Оплатить старт проекта пользователем " + userDetails.getUsername());
         AccountDetailsResponseDto result = personalAccountService.payProject(userDetails.getUsername(), description);
         return ResponseEntity.ok().body(result);
     }
@@ -46,7 +46,7 @@ public class PersonalAccountController {
         if (!(auth instanceof AnonymousAuthenticationToken)) {
             userDetails = (UserDetails) auth.getPrincipal();
         }
-        LOG.log(Level.INFO, "Запрос: \"Получить всю историю операций по логину "+userDetails.getUsername()+"\" /api/bank/accounts");
+        LOG.log(Level.INFO, "Запрос: \"Получить всю историю операций по логину " + userDetails.getUsername() + "\" /api/bank/accounts");
         List<AccountHistoryResponseDto> results = personalAccountService.getAllHistoryAccount(userDetails.getUsername());
         return ResponseEntity.ok().body(results);
     }
