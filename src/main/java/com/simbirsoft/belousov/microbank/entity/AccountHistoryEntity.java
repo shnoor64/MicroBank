@@ -33,8 +33,7 @@ public class AccountHistoryEntity {
     public AccountHistoryEntity() {
     }
 
-    public AccountHistoryEntity(long id, PersonalAccountEntity account, TypeOperation typeOperation, float amountMoney, LocalDateTime timeOperation, String description) {
-        this.id = id;
+    public AccountHistoryEntity(PersonalAccountEntity account, TypeOperation typeOperation, float amountMoney, LocalDateTime timeOperation, String description) {
         this.account = account;
         this.typeOperation = typeOperation;
         this.amountMoney = amountMoney;

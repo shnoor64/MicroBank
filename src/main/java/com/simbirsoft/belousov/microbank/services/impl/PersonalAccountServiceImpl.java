@@ -49,8 +49,8 @@ public class PersonalAccountServiceImpl implements PersonalAccountService {
             throw new LowBalance("Недостаточно средств");
         }
         personalAccountEntity.getAccountDetails().setBalance(personalAccountEntity.getAccountDetails().getBalance() - pr);
-        personalAccountRepository.save(personalAccountEntity);
-        accountHistoryRepository.save(new AccountHistoryEntity(0, personalAccountEntity, TypeOperation.PAYMENT, pr, LocalDateTime.now(), description));
+//        personalAccountRepository.save(personalAccountEntity);
+        accountHistoryRepository.save(new AccountHistoryEntity(personalAccountEntity, TypeOperation.PAYMENT, pr, LocalDateTime.now(), description));
         return accountDetailsMapper.AccountDetailsEntityToResponseDto(personalAccountEntity.getAccountDetails());
 
     }

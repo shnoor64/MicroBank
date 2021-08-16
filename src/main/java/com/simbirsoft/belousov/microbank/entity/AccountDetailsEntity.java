@@ -3,7 +3,7 @@ package com.simbirsoft.belousov.microbank.entity;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "personal_account")
+@Table(name = "account_details")
 public class AccountDetailsEntity {
     @Id
     @Column(name = "id")

@@ -7,6 +7,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AnonymousAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -28,18 +30,19 @@ public class PersonalAccountController {
     //в description скорее всего буду передавать название проекта
     public ResponseEntity<AccountDetailsResponseDto> paymentProject(@PathVariable String description) {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-        String userDetails = null;
+        UserDetails userDetails = null;
         if (!(auth instanceof AnonymousAuthenticationToken)) {
-            userDetails = (String) auth.getPrincipal();
+            userDetails = (UserDetails) auth.getPrincipal();
         }
-        LOG.log(Level.INFO, "Вызван метод: paymentProject "+"login:"+userDetails);
-        AccountDetailsResponseDto result = personalAccountService.payProject(userDetails, description);
+        LOG.log(Level.INFO, "Вызван метод: paymentProject "+"login:"+userDetails.getUsername());
+        AccountDetailsResponseDto result = personalAccountService.payProject(userDetails.getUsername(), description);
         return ResponseEntity.ok().body(result);
     }
 
     @GetMapping
     public ResponseEntity<List<AccountHistoryResponseDto>> getAllHistory() {
-        LOG.log(Level.INFO, "Вызван метод: getAllHistory ");
+        LOG.log(Level.INFO, "Запрос: \"Получить всю историю операций\" /api/bank/accounts");
+
 //        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 //        String userDetails = null;
 //        if (!(auth instanceof AnonymousAuthenticationToken)) {
