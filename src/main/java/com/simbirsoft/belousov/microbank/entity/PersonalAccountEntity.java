@@ -7,6 +7,7 @@ import java.util.List;
 @Table(name = "personal_account")
 public class PersonalAccountEntity {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private long id;
 

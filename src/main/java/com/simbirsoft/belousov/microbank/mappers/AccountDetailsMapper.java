@@ -19,7 +19,7 @@ public abstract class AccountDetailsMapper {
     protected PersonalAccountRepository personalAccountRepository;
 
     @Mappings({
-            @Mapping(target = "account", expression = "java(personalAccountRepository.findById((int)accountDetailsRequestDto.getAccount()).orElseThrow(() -> new NoSuchException(\"Аккаунт не найден\")))")
+            @Mapping(target = "account", expression = "java(personalAccountRepository.findById(accountDetailsRequestDto.getAccount()).orElseThrow(() -> new NoSuchException(\"Аккаунт не найден\")))")
     })
     public abstract AccountDetailsEntity accountDetailsRequestDtoToEntity(AccountDetailsRequestDto accountDetailsRequestDto) throws NoSuchException;
 

@@ -7,6 +7,7 @@ import javax.persistence.*;
 public class AccountDetailsEntity {
     @Id
     @Column(name = "id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
     @OneToOne(cascade = CascadeType.ALL)

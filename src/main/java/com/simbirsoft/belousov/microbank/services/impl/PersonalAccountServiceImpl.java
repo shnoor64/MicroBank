@@ -3,7 +3,9 @@ package com.simbirsoft.belousov.microbank.services.impl;
 import com.simbirsoft.belousov.microbank.entity.AccountHistoryEntity;
 import com.simbirsoft.belousov.microbank.entity.PersonalAccountEntity;
 import com.simbirsoft.belousov.microbank.enums.TypeOperation;
+import com.simbirsoft.belousov.microbank.mappers.AccountDetailsMapper;
 import com.simbirsoft.belousov.microbank.mappers.AccountDetailsMapperImpl;
+import com.simbirsoft.belousov.microbank.mappers.AccountHistoryMapper;
 import com.simbirsoft.belousov.microbank.mappers.AccountHistoryMapperImpl;
 import com.simbirsoft.belousov.microbank.repository.AccountDetailsRepository;
 import com.simbirsoft.belousov.microbank.repository.AccountHistoryRepository;
@@ -29,10 +31,10 @@ public class PersonalAccountServiceImpl implements PersonalAccountService {
     private final AccountDetailsRepository accountDetailsRepository;
     private final PersonalAccountRepository personalAccountRepository;
     private final AccountHistoryRepository accountHistoryRepository;
-    private final AccountHistoryMapperImpl accountHistoryMapper;
-    private final AccountDetailsMapperImpl accountDetailsMapper;
+    private final AccountHistoryMapper accountHistoryMapper;
+    private final AccountDetailsMapper accountDetailsMapper;
 
-    public PersonalAccountServiceImpl(AccountDetailsRepository accountDetailsRepository, PersonalAccountRepository personalAccountRepository, AccountHistoryRepository accountHistoryRepository, AccountHistoryMapperImpl accountHistoryMapper, AccountDetailsMapperImpl accountDetailsMapper) {
+    public PersonalAccountServiceImpl(AccountDetailsRepository accountDetailsRepository, PersonalAccountRepository personalAccountRepository, AccountHistoryRepository accountHistoryRepository, AccountHistoryMapper accountHistoryMapper, AccountDetailsMapper accountDetailsMapper) {
         this.accountDetailsRepository = accountDetailsRepository;
         this.personalAccountRepository = personalAccountRepository;
         this.accountHistoryRepository = accountHistoryRepository;

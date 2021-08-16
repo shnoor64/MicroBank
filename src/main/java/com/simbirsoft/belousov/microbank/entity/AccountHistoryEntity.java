@@ -6,7 +6,6 @@ import javax.persistence.*;
 import java.time.LocalDateTime;
 
 @Entity
-
 @Table(name = "account_history")
 public class AccountHistoryEntity {
     @Id
