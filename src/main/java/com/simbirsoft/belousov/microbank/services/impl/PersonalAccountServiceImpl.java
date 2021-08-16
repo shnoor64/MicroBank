@@ -58,7 +58,7 @@ public class PersonalAccountServiceImpl implements PersonalAccountService {
     @Override
     public List<AccountHistoryResponseDto> getAllHistoryAccount(String login) {
         List<AccountHistoryResponseDto> accountHistoryResponseDtoList = new ArrayList<>();
-        List<AccountHistoryEntity> accountHistoryEntityList = accountHistoryRepository.findAll();
+        List<AccountHistoryEntity> accountHistoryEntityList = accountHistoryRepository.findByAccount_Id(personalAccountRepository.findByLogin(login).getId());
         return accountHistoryEntityList
                 .stream()
                 .map(accountHistoryEntity -> accountHistoryMapper.accountHistoryEntityToResponseDto(accountHistoryEntity))

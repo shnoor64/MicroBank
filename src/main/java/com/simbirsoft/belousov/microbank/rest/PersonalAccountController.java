@@ -34,21 +34,20 @@ public class PersonalAccountController {
         if (!(auth instanceof AnonymousAuthenticationToken)) {
             userDetails = (UserDetails) auth.getPrincipal();
         }
-        LOG.log(Level.INFO, "Вызван метод: paymentProject "+"login:"+userDetails.getUsername());
+        LOG.log(Level.INFO, "Запрос: \"Оплатить старт проекта пользователем "+userDetails.getUsername());
         AccountDetailsResponseDto result = personalAccountService.payProject(userDetails.getUsername(), description);
         return ResponseEntity.ok().body(result);
     }
 
     @GetMapping
     public ResponseEntity<List<AccountHistoryResponseDto>> getAllHistory() {
-        LOG.log(Level.INFO, "Запрос: \"Получить всю историю операций\" /api/bank/accounts");
-
-//        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-//        String userDetails = null;
-//        if (!(auth instanceof AnonymousAuthenticationToken)) {
-//            userDetails = (String) auth.getPrincipal();
-//        }
-        List<AccountHistoryResponseDto> results = personalAccountService.getAllHistoryAccount("oleg");
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        UserDetails userDetails = null;
+        if (!(auth instanceof AnonymousAuthenticationToken)) {
+            userDetails = (UserDetails) auth.getPrincipal();
+        }
+        LOG.log(Level.INFO, "Запрос: \"Получить всю историю операций по логину "+userDetails.getUsername()+"\" /api/bank/accounts");
+        List<AccountHistoryResponseDto> results = personalAccountService.getAllHistoryAccount(userDetails.getUsername());
         return ResponseEntity.ok().body(results);
     }
 }
