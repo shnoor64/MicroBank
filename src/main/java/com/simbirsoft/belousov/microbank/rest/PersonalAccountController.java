@@ -49,5 +49,6 @@ public class PersonalAccountController {
         LOG.log(Level.INFO, "Запрос: \"Получить всю историю операций по логину " + userDetails.getUsername() + "\" /api/bank/accounts");
         List<AccountHistoryResponseDto> results = personalAccountService.getAllHistoryAccount(userDetails.getUsername());
         return ResponseEntity.ok().body(results);
+//        return ResponseEntity.badRequest().body(results);
     }
 }
