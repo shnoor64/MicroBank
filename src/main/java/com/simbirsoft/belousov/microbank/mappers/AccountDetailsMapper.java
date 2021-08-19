@@ -4,7 +4,7 @@ import com.simbirsoft.belousov.microbank.entity.AccountDetailsEntity;
 import com.simbirsoft.belousov.microbank.repository.PersonalAccountRepository;
 import com.simbirsoft.belousov.microbank.rest.dto.AccountDetailsRequestDto;
 import com.simbirsoft.belousov.microbank.rest.dto.AccountDetailsResponseDto;
-import com.simbirsoft.belousov.microbank.rest.exeption_handing.NoSuchException;
+import com.simbirsoft.belousov.microbank.rest.exceptions.NoSuchException;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.Mappings;

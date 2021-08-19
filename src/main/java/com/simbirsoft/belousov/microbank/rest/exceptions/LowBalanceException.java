@@ -1,4 +1,4 @@
-package com.simbirsoft.belousov.microbank.rest.exeption_handing;
+package com.simbirsoft.belousov.microbank.rest.exceptions;
 
 public class LowBalanceException extends RuntimeException{
 

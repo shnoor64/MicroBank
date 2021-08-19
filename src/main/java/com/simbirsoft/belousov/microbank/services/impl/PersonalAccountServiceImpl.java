@@ -10,7 +10,7 @@ import com.simbirsoft.belousov.microbank.repository.AccountHistoryRepository;
 import com.simbirsoft.belousov.microbank.repository.PersonalAccountRepository;
 import com.simbirsoft.belousov.microbank.rest.dto.AccountDetailsResponseDto;
 import com.simbirsoft.belousov.microbank.rest.dto.AccountHistoryResponseDto;
-import com.simbirsoft.belousov.microbank.rest.exeption_handing.LowBalanceException;
+import com.simbirsoft.belousov.microbank.rest.exceptions.LowBalanceException;
 import com.simbirsoft.belousov.microbank.services.PersonalAccountService;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;

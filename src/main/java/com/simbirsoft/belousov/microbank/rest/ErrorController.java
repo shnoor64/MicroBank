@@ -1,7 +1,7 @@
 package com.simbirsoft.belousov.microbank.rest;
 
-import com.simbirsoft.belousov.microbank.rest.exeption_handing.LowBalanceException;
-import com.simbirsoft.belousov.microbank.rest.exeption_handing.NoSuchException;
+import com.simbirsoft.belousov.microbank.rest.exceptions.LowBalanceException;
+import com.simbirsoft.belousov.microbank.rest.exceptions.NoSuchException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
