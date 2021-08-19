@@ -4,16 +4,13 @@ import com.simbirsoft.belousov.microbank.entity.AccountHistoryEntity;
 import com.simbirsoft.belousov.microbank.entity.PersonalAccountEntity;
 import com.simbirsoft.belousov.microbank.enums.TypeOperation;
 import com.simbirsoft.belousov.microbank.mappers.AccountDetailsMapper;
-import com.simbirsoft.belousov.microbank.mappers.AccountDetailsMapperImpl;
 import com.simbirsoft.belousov.microbank.mappers.AccountHistoryMapper;
-import com.simbirsoft.belousov.microbank.mappers.AccountHistoryMapperImpl;
 import com.simbirsoft.belousov.microbank.repository.AccountDetailsRepository;
 import com.simbirsoft.belousov.microbank.repository.AccountHistoryRepository;
 import com.simbirsoft.belousov.microbank.repository.PersonalAccountRepository;
 import com.simbirsoft.belousov.microbank.rest.dto.AccountDetailsResponseDto;
-import com.simbirsoft.belousov.microbank.rest.dto.AccountHistoryRequestDto;
 import com.simbirsoft.belousov.microbank.rest.dto.AccountHistoryResponseDto;
-import com.simbirsoft.belousov.microbank.rest.exeption_handing.LowBalance;
+import com.simbirsoft.belousov.microbank.rest.exeption_handing.LowBalanceException;
 import com.simbirsoft.belousov.microbank.services.PersonalAccountService;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
@@ -46,7 +43,7 @@ public class PersonalAccountServiceImpl implements PersonalAccountService {
     public AccountDetailsResponseDto payProject(String login, String description) {
         PersonalAccountEntity personalAccountEntity = personalAccountRepository.findByLogin(login);
         if (personalAccountEntity.getAccountDetails().getBalance() < pr) {
-            throw new LowBalance("Недостаточно средств");
+            throw new LowBalanceException("Недостаточно средств");
         }
         personalAccountEntity.getAccountDetails().setBalance(personalAccountEntity.getAccountDetails().getBalance() - pr);
 //        personalAccountRepository.save(personalAccountEntity);

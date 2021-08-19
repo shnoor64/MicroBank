@@ -1,6 +1,6 @@
 package com.simbirsoft.belousov.microbank.rest;
 
-import com.simbirsoft.belousov.microbank.rest.exeption_handing.LowBalance;
+import com.simbirsoft.belousov.microbank.rest.exeption_handing.LowBalanceException;
 import com.simbirsoft.belousov.microbank.rest.exeption_handing.NoSuchException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -22,8 +22,8 @@ public class ErrorController {
         return new ResponseEntity<String>(e.getMessage(), HttpStatus.NOT_FOUND);
     }
 
-    @ExceptionHandler(LowBalance.class)
-    public ResponseEntity<String> handleLowBalance(LowBalance e) {
+    @ExceptionHandler(LowBalanceException.class)
+    public ResponseEntity<String> handleLowBalance(LowBalanceException e) {
         return new ResponseEntity<String>(e.getMessage(), HttpStatus.BAD_REQUEST);
     }
 }
